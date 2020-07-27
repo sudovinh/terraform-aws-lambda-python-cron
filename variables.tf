@@ -1,5 +1,5 @@
 variable "enabled" {
-  description = "This module will not create any resources unless enabled is set to "true""
+  description = "This module will not create any resources unless enabled is set to true"
 }
 variable "vpc_id" {
   description = "VPC ID"

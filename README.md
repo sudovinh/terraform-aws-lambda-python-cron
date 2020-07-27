@@ -5,24 +5,16 @@ This repo layout was inspired by [Cloud Possee](https://github.com/cloudposse). 
 
 ## Usage
 
-**IMPORTANT:** The `master` branch is used in `source` just as an example. In your code, do not pin to `master` because there may be breaking changes between releases.
-Instead pin to the release tag (e.g. `?ref=tags/x.y.z`) of one of our [latest releases](https://github.com/sudovinh/terraform-aws-lambda-python-cron/releases).
+**IMPORTANT:** 
+If your scripts requires variables, [this](https://github.com/sudovinh/terraform-aws-lambda-python-cron/blob/f29cf1b695debc086868c92e6879c49b2b91c0f0/main.tf#L132-L137) must be uncommentted and edited. There must be a variable block for each variable in variables.tf
 
-For a complete example, see [examples](examples/).
-
+ex.
 ```hcl
-module "python_lambda" {
-  source               = "https://github.com/sudovinh/terraform-aws-lambda-python-cron.git?ref=master"
-  vpc_id               = module.vpc.vpc_id
-  subnet_ids           = module.subnets.subnet_ids
-  function_name        = "test"
-  function_description = "This is a test"
-  function_mem_size    = 128
-  function_timeout     = 300
-  source_code_path     = "{path to Python source code}/python_script.py"
-  script_name          = "python_script.py"
-  python_version       = "3.7
-  cron_schedule        = "rate(5 minutes)"
+# script requires MASTER_PASSWORD .
+environment {
+  variables = {
+    MASTER_PASSWORD = var.master_password 
+  }
 }
 ```
 
