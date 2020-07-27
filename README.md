@@ -1,8 +1,6 @@
 # terraform-aws-lambda-python-cron
 A module that package your python code and dependencies together then run on a scheduled time via cloudwatch.
 
-This repo layout was inspired by [Cloud Possee](https://github.com/cloudposse). Go check them out for cool terraform modules.
-
 ## Usage
 
 **IMPORTANT:** 
